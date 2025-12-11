@@ -4,13 +4,15 @@ import solution.day1.Day1ProblemSolver
 import solution.day2.Day2ProblemSolver
 import solution.day3.Day3ProblemSolver
 import solution.day4.Day4ProblemSolver
+import solution.day5.Day5ProblemSolver
+import solution.day6.Day6ProblemSolver
 import kotlin.test.assertEquals
 
 class ProblemSolverTest {
 
 	@Test
 	fun testCurrent(){
-		val solver = Day4ProblemSolver()
+		val solver = Day6ProblemSolver()
 		println(solver.partOne())
 		println(solver.partTwo())
 	}
@@ -31,7 +33,10 @@ class ProblemSolverTest {
 	@Test
 	fun dayFour() {
 		verify(Day4ProblemSolver(), answerOne = 1437, answerTwo = 8765)
-
+	}
+	@Test
+	fun dayFive() {
+		verify(Day5ProblemSolver(), answerOne = 874, answerTwo = 348548952146313)
 	}
 
 	private fun <A : Number> verify(
