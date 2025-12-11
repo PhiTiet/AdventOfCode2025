@@ -29,7 +29,7 @@ class Day1ProblemSolver : AbstractProblemSolver<Int>() {
 		var passedZero = 0
 		var rotation = 50
 		//basic intuition : first check if the turn crosses(or stops at) zero as if it only had 2 digits.
-		// so 921 left = check 21 , if it crosses zero +=1 then add the full turns
+		// so 921 left = check 21 , if it crosses zero +=1 then add the full turns (+9)
 		input.forEach {
 			val startRotation = rotation
 			if (it.turnDirection == "L") {

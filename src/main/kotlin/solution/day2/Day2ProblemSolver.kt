@@ -3,7 +3,7 @@ package solution.day2
 import AbstractProblemSolver
 
 class Day2ProblemSolver : AbstractProblemSolver<Long>() {
-	val input = getProblemInput().get(0).split(",").map { line ->
+	private val input = getProblemInput().get(0).split(",").map { line ->
 		val (from, to) = line.split("-")
 		IdRange(from.toLong(), to.toLong())}
 
