@@ -35,7 +35,7 @@ class Day6ProblemSolver : AbstractProblemSolver<Long>() {
 	//	123 328
 	//	  45 64
 	// for example the second digit in the second row is index 2 for 45 but index 1 for 64
-	//not going to solve this one because it would mean rewriting the parsing logic
+	// not going to solve this one because it would mean rewriting the parsing logic
 
 	override fun partTwo(): Long {
 		val topDownOperands = operands.map { toTopDownOperands(it) }
