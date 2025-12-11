@@ -15,13 +15,13 @@ class PaperGrid(elements: List<List<PaperGridElement>>) : AbstractGrid<PaperGrid
 			Pair(1, 1)    // bottom-right
 		)
 		return directions.mapNotNull { (dy, dx) ->
-			if (y + dy in sizeRange && x + dx in sizeRange) get(y + dy, x + dx) else null
+			if (y + dy in heightRange && x + dx in widthRange) get(y + dy, x + dx) else null
 		}
 	}
 	fun getReachableCoordinates(): List<Pair<Int, Int>> {
 		val reachableCoords = mutableListOf<Pair<Int, Int>>()
-		for (y in sizeRange) {
-			for (x in sizeRange) {
+		for (y in heightRange) {
+			for (x in widthRange) {
 				val adjacent = getAdjacentPapers(y, x)
 				val current = get(y, x)
 				if (current.symbol != "@") {
@@ -34,6 +34,4 @@ class PaperGrid(elements: List<List<PaperGridElement>>) : AbstractGrid<PaperGrid
 		}
 		return reachableCoords.toList()
 	}
-
-
 }
