@@ -65,9 +65,17 @@ abstract class AbstractGrid<E : AbstractGridElement>(protected val elements: Lis
         }
     }
 
-    fun displayGrid() {
+    fun display() {
         elements.forEach { row ->
             println(row.map { e -> e.symbol })
+        }
+    }
+
+    fun forEach(action: (E) -> Unit) {
+        elements.forEach { row ->
+            row.forEach { element ->
+                action(element)
+            }
         }
     }
 }
