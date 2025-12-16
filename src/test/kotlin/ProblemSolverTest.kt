@@ -9,13 +9,14 @@ import solution.day5.Day5ProblemSolver
 import solution.day6.Day6ProblemSolver
 import solution.day7.Day7ProblemSolver
 import solution.day8.Day8ProblemSolver
+import solution.day9.Day9ProblemSolver
 import kotlin.test.assertEquals
 
 class ProblemSolverTest {
 
 	@Test
 	fun testCurrent(){
-		val solver = Day8ProblemSolver()
+		val solver = Day9ProblemSolver()
 		println(solver.partOne())
 		println(solver.partTwo())
 	}

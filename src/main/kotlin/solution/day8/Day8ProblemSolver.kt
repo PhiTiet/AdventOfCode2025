@@ -6,7 +6,7 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class Day8ProblemSolver : AbstractProblemSolver<Long>() {
-	private val input = getProblemInput().mapIndexed { index, line ->
+	private val junctionBoxes = getProblemInput().mapIndexed { index, line ->
 		val (x, y, z) = line.split(",").map { it.toInt() }
 		JunctionBox(x = x, y = y, z = z, id = index.toString())
 	}
@@ -14,8 +14,8 @@ class Day8ProblemSolver : AbstractProblemSolver<Long>() {
 	private var sortedBoxPairs: List<Pair<Pair<JunctionBox, JunctionBox>, Double>> = listOf()
 
 	init {
-		for (x in input) {
-			for (y in input) {
+		for (x in junctionBoxes) {
+			for (y in junctionBoxes) {
 				if (x == y || distanceMap.containsKey(Pair(x, y)) || distanceMap.containsKey(Pair(y, x))) {
 					continue
 				}
@@ -48,7 +48,7 @@ class Day8ProblemSolver : AbstractProblemSolver<Long>() {
 				error { "More than 2 connections found for boxes ${box1.id} and ${box2.id}" }
 			}
 		}
-		for (box in input) {
+		for (box in junctionBoxes) {
 			if (connections.none { it.contains(box) }) {
 				connections.add(mutableSetOf(box))
 			}
@@ -77,7 +77,7 @@ class Day8ProblemSolver : AbstractProblemSolver<Long>() {
 				}
 
 			} else if (presentInCurrentConnections.size == 2) {
-				if (connections.size == 2 && connections.flatten().size == input.size) {
+				if (connections.size == 2 && connections.flatten().size == junctionBoxes.size) {
 					finalConnectingPair = Pair(box1, box2)
 					break
 				}
