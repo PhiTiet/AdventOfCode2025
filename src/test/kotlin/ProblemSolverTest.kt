@@ -1,3 +1,4 @@
+
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Test
 import solution.day1.Day1ProblemSolver
@@ -42,6 +43,10 @@ class ProblemSolverTest {
 	@Test
 	fun daySix() {
 		verify(Day6ProblemSolver(), answerOne = 7644505810277, answerTwo = 12866637741218) //12841228084455
+	}
+	@Test
+	fun daySeven() {
+		verify(Day7ProblemSolver(), answerOne = 1592, answerTwo = 17921968177009)
 	}
 
 	private fun <A : Number> verify(
