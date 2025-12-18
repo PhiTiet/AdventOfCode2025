@@ -2,6 +2,7 @@ package solution.day9
 
 import AbstractProblemSolver
 import solution.day9.model.RedTile
+import kotlin.math.abs
 
 class Day9ProblemSolver : AbstractProblemSolver<Long>() {
 	private val tiles = getProblemInput()
@@ -27,9 +28,7 @@ class Day9ProblemSolver : AbstractProblemSolver<Long>() {
 		return 0
 	}
 	private fun calculateRectangleArea(tile1: RedTile, tile2: RedTile): Long {
-		val length = kotlin.math.abs(tile1.x - tile2.x + 1)
-		val width = kotlin.math.abs(tile1.y - tile2.y + 1)
-		return length * width
+		return abs(tile1.x - tile2.x + 1) * abs(tile1.y - tile2.y + 1)
 	}
 
 }
