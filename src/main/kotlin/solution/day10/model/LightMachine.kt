@@ -50,28 +50,24 @@ data class LightMachine(
 					if (newState == desiredJoltage) {
 						return presses.toLong()
 					}
-
-					if (invalidState(newState, desiredJoltage)) {
-						continue
+					if (alreadyReached.containsKey(newState)){
+						if (alreadyReached[newState]!! <= presses){
+							continue
+						} else {
+							alreadyReached[newState] = presses
+						}
 					}
-
-					val prevPresses = alreadyReached[newState]
-					if (prevPresses != null && prevPresses <= presses) {
-						continue
+					else if (!alreadyReached.containsKey(newState) || !invalidState(newState, desiredJoltage)) {
+						alreadyReached[newState] = presses
+						val copy = current.first.toMutableList()
+						copy[index] = copy[index] + 1
+						if (alreadyReachedButtons.contains(copy)) {
+							continue
+						}
+						newSearch.add(Pair(copy, newState))
+						alreadyReachedButtons.add(copy)
 					}
-
-					alreadyReached[newState] = presses
-					val copy = current.first.toMutableList()
-					copy[index] = copy[index] + 1
-
-					if (alreadyReachedButtons.contains(copy)) {
-						continue
-					}
-
-					newSearch.add(Pair(copy, newState))
-					alreadyReachedButtons.add(copy)
 				}
-
 			}
 
 			newSearch = newSearch.distinctBy { it.first }.toMutableList()
