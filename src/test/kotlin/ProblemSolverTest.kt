@@ -2,6 +2,7 @@
 import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.Test
 import solution.day1.Day1ProblemSolver
+import solution.day10.Day10ProblemSolver
 import solution.day2.Day2ProblemSolver
 import solution.day3.Day3ProblemSolver
 import solution.day4.Day4ProblemSolver
@@ -16,7 +17,7 @@ class ProblemSolverTest {
 
 	@Test
 	fun testCurrent(){
-		val solver = Day9ProblemSolver()
+		val solver = Day10ProblemSolver()
 		println(solver.partOne())
 		println(solver.partTwo())
 	}
@@ -53,6 +54,10 @@ class ProblemSolverTest {
 	@Test
 	fun dayEight() {
 		verify(Day8ProblemSolver(), answerOne = 129564, answerTwo = 42047840)
+	}
+	@Test
+	fun dayNine() {
+		verify(Day9ProblemSolver(), answerOne = 4755064176, answerTwo = 0)
 	}
 
 	private fun <A : Number> verify(
