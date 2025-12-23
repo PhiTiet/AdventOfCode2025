@@ -23,12 +23,13 @@ class Day9ProblemSolver : AbstractProblemSolver<Long>() {
 		}
 		return rectangleSizes.max()
 	}
+	private fun calculateRectangleArea(tile1: RedTile, tile2: RedTile): Long {
+		return abs(tile1.x - tile2.x + 1) * abs(tile1.y - tile2.y + 1)
+	}
 
 	override fun partTwo(): Long {
 		return 0
 	}
-	private fun calculateRectangleArea(tile1: RedTile, tile2: RedTile): Long {
-		return abs(tile1.x - tile2.x + 1) * abs(tile1.y - tile2.y + 1)
-	}
+
 
 }
